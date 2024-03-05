@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\PDFController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\EventController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\QRCodeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,12 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-
-Route::get('/generate-pdf', [PDFController::class, 'generatePDF'])->name('generate.pdf');
+Route::prefix('admin')->group(function () {
+    Route::get('/users/{user}/ban', [UserController::class, 'ban'])->name('users.ban');
+    Route::get('/users/{user}/unban', [UserController::class, 'unban'])->name('users.unban');
+    Route::resource('categories', CategoryController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('events', EventController::class);
+    Route::get('/events/{id}/accept', [EventController::class, 'accept'])->name('events.accept');
+    Route::get('/events/{id}/decline', [EventController::class, 'decline'])->name('events.decline');
+});

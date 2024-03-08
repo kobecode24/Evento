@@ -139,7 +139,7 @@
                         <h2 class="text-xl font-medium text-gray-700">Categories List</h2>
                         <div class="overflow-x-auto mt-6">
                             <div class="mb-4">
-                                <a href="{{ route('categories.create') }}" class="px-4 py-2 bg-green-500 text-white text-sm font-bold uppercase rounded hover:bg-green-600 focus:outline-none focus:bg-green-700 transition duration-150 ease-in-out">
+                                <a href="{{ route('admin.categories.create') }}" class="px-4 py-2 bg-green-500 text-white text-sm font-bold uppercase rounded hover:bg-green-600 focus:outline-none focus:bg-green-700 transition duration-150 ease-in-out">
                                     Add New Category
                                 </a>
                             </div>
@@ -160,10 +160,10 @@
                                         </td>
                                         <td class="py-3 px-6 text-center">
                                             <div class="flex item-center justify-center space-x-2">
-                                                <a href="{{ route('categories.edit', $category->id) }}" class="transform hover:text-purple-500 hover:scale-110">
+                                                <a href="{{ route('admin.categories.edit', $category->id) }}" class="transform hover:text-purple-500 hover:scale-110">
                                                     <button class="px-2 py-1 bg-blue-500 text-white text-xs font-bold uppercase rounded">Edit</button>
                                                 </a>
-                                                <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
+                                                <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="px-2 py-1 bg-red-500 text-white text-xs font-bold uppercase rounded">Delete</button>

@@ -136,7 +136,7 @@
                 @endif
                     <div class="max-w-lg mx-auto bg-white p-6 rounded-md shadow-md">
                         <h2 class="text-xl font-medium text-gray-700">Create New Category</h2>
-                        <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mt-4">
                                 <label class="block" for="name">Category Name</label>

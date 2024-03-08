@@ -29,8 +29,8 @@
 
     <nav class="mt-10">
         <a
-            class="flex items-center px-6 py-2 mt-4 {{ request()->is('admin/statistics*') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100' }}"
-            href="{{ route('admin.statistics') }}"
+            class="flex items-center px-6 py-2 mt-4 {{ request()->is('organizer/statistics*') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100' }}"
+            href="{{ route('organizer.statistics') }}"
         >
             <!-- SVG for Dashboard -->
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,22 +39,9 @@
             </svg>
             <span class="mx-3">Dashboard</span>
         </a>
-
         <a
-            class="flex items-center px-6 py-2 mt-4 {{ request()->is('admin/categories') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100' }}"
-            href="{{ route('admin.categories.index') }}"
-        >
-            <!-- SVG for Job Offers -->
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <!-- SVG path for Job Offers -->
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 100-8 4 4 0 000 8zM21 12H9" />
-            </svg>
-            <span class="mx-3">Categories</span>
-        </a>
-
-        <a
-            class="flex items-center px-6 py-2 mt-4 {{ request()->is('admin/events') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100' }}"
-            href="{{ route('admin.events.index') }}"
+            class="flex items-center px-6 py-2 mt-4 {{ request()->is('organizer/events') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100' }}"
+            href="{{ route('organizer.events.index') }}"
         >
             <!-- SVG for Employees -->
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,15 +52,15 @@
         </a>
 
         <a
-            class="flex items-center px-6 py-2 mt-4 {{ request()->is('admin/users') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100' }}"
-            href="{{ route('admin.users.index') }}"
+            class="flex items-center px-6 py-2 mt-4 {{ request()->is('user/reservations') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100' }}"
+            href="{{ route('user.reservations.index') }}"
         >
             <!-- SVG for Forms -->
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <!-- SVG path for Forms -->
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
-            <span class="mx-3">Users</span>
+            <span class="mx-3">Reservations</span>
         </a>
     </nav>
 </div>

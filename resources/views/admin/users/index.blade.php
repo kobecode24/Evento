@@ -212,15 +212,15 @@
                                <td class="py-3 px-6 text-center">
                                    <div class="flex item-center justify-center space-x-2">
                                        @if(!$user->status)
-                                           <a href="{{ route('users.ban', $user->id) }}" class="transform hover:text-purple-500 hover:scale-110">
+                                           <a href="{{ route('admin.users.ban', $user->id) }}" class="transform hover:text-purple-500 hover:scale-110">
                                                <button class="px-2 py-1 bg-yellow-500 text-white text-xs font-bold uppercase rounded">Ban</button>
                                            </a>
                                        @else
-                                           <a href="{{ route('users.unban', $user->id) }}" class="transform hover:text-purple-500 hover:scale-110">
+                                           <a href="{{ route('admin.users.unban', $user->id) }}" class="transform hover:text-purple-500 hover:scale-110">
                                                <button class="px-2 py-1 bg-green-500 text-white text-xs font-bold uppercase rounded">Unban</button>
                                            </a>
                                        @endif
-                                       <form action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                       <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                            @csrf
                                            @method('DELETE')
                                            <button type="submit" class="px-2 py-1 bg-red-500 text-white text-xs font-bold uppercase rounded">Delete</button>

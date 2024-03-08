@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -55,5 +57,13 @@ class   UserController extends Controller
         $user->status = '0';
         $user->save();
         return redirect()->route('users.index')->with('success', 'User unbanned successfully');
+    }
+
+    public function statistics()
+    {
+        $statisticUser = User::count();
+        $statisticEvent = Event::count();
+        $statisticCategory = Category::count();
+        return view('admin.statistics.index', compact(['statisticUser', 'statisticEvent', 'statisticCategory']));
     }
 }

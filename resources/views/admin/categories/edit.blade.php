@@ -7,12 +7,12 @@
                 <h2 class="text-2xl font-semibold leading-tight">Edit Category</h2>
             </div>
             <div class="my-5">
-                <a href="{{ route('categories.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                <a href="{{ route('admin.categories.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                     Back to Category List
                 </a>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form action="{{ route('categories.update', $category->id) }}" method="POST">
+                <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="shadow overflow-hidden sm:rounded-md">

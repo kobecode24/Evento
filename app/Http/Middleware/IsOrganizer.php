@@ -16,7 +16,7 @@ class IsOrganizer
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role === 'organizer') {
+        if (Auth::user()->hasRole('Organizer')) {
             return $next($request);
         }
 

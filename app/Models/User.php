@@ -48,4 +48,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public function hasRole($roleName)
+    {
+        return $this->roles->contains(function ($role) use ($roleName) {
+            return $role->name === $roleName;
+        });
+    }
 }

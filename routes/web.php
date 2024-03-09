@@ -21,11 +21,11 @@ use App\Http\Controllers\user\ReservationController as UserReservationController
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('user.events.index');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('user.events.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

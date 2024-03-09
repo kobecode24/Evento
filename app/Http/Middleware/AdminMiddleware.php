@@ -16,7 +16,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->role !== 'admin') {
+        if (!Auth::user()->hasRole('Admin')) {
             return redirect()->route('organizer.statistics');
         }
         return $next($request);

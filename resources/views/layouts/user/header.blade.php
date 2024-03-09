@@ -197,11 +197,17 @@
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white"
                     >Products</a
                 >
+
                 <a
-                    href="#"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white"
-                    >Logout</a
+                >  <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" >
+                            Logout
+                        </button>
+                    </form></a
                 >
+
             </div>
         </div>
     </div>

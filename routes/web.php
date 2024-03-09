@@ -38,7 +38,7 @@ require __DIR__.'/auth.php';
 
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'IsAdmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('statistics',[UserController::class, 'statistics'])->name('statistics');
     Route::get('/users/{user}/ban', [UserController::class, 'ban'])->name('users.ban');
     Route::get('/users/{user}/unban', [UserController::class, 'unban'])->name('users.unban');
@@ -49,7 +49,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/events/{event}/decline', [AdminEventController::class, 'decline'])->name('events.decline');
 });
 
-Route::prefix('organizer')->name('organizer.')->group(function () {
+Route::middleware(['auth', 'IsOrganizer'])->prefix('organizer')->name('organizer.')->group(function () {
     Route::get('statistics',[OrganizerEventController::class, 'statistics'])->name('statistics');
     Route::resource('events', OrganizerEventController::class);
     Route::resource('reservations', OrganizerReservationController::class);
@@ -58,10 +58,10 @@ Route::prefix('organizer')->name('organizer.')->group(function () {
     Route::get('/events/{event}/cancel', [OrganizerEventController::class, 'cancel'])->name('events.cancel');
 });
 
-Route::prefix('user')->name('user.')->group(function () {
+Route::middleware('auth')->prefix('user')->name('user.')->group(function () {
     Route::resource('events', userEventController::class);
     Route::get('/reservations/create/{id}', [UserReservationController::class, 'create'])->name('reservations.create');
     Route::resource('reservations', UserReservationController::class)->except(['create']);
     Route::get('/download-ticket/{ticketId}', [UserReservationController::class,'ticket_download'])->name('ticket_download');
-
 });
+

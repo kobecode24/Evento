@@ -43,9 +43,12 @@ class   UserController extends Controller
     public function ban($userId)
     {
         $user = User::findOrFail($userId);
+        if ($user->hasRole('Admin')) {
+            return redirect()->route('admin.users.index')->with('error', 'You can not ban the admin');
+        }
         $user->status = '1';
         $user->save();
-        return redirect()->route('users.index')->with('success', 'User banned successfully');
+        return redirect()->route('admin.users.index')->with('success', 'User banned successfully');
     }
 
     public function unban($userId)
@@ -53,7 +56,7 @@ class   UserController extends Controller
         $user = User::findOrFail($userId);
         $user->status = '0';
         $user->save();
-        return redirect()->route('users.index')->with('success', 'User unbanned successfully');
+        return redirect()->route('admin.users.index')->with('success', 'User unbanned successfully');
     }
 
     public function statistics()

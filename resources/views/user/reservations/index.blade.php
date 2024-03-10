@@ -67,6 +67,8 @@
                                                     <span class="inline-flex px-3 py-1 text-xs font-semibold leading-5 text-red-800 bg-red-200 rounded-full">Refused</span>
                                                     @break
                                                 @case(3)
+                                                @case(4)
+                                                @case(5)
                                                     <span class="inline-flex px-3 py-1 text-xs font-semibold leading-5 text-gray-800 bg-gray-200 rounded-full">Cancelled</span>
                                                     @break
                                             @endswitch

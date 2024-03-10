@@ -31,13 +31,7 @@
                 </div>
             @endif
                 <div class="w-full mx-auto bg-white p-6 rounded-md shadow-md">
-                    <h2 class="text-xl font-medium text-gray-700">Events List</h2>
                     <div class="overflow-x-auto mt-6">
-                        <div class="mb-4">
-                            <a href="{{ route('organizer.events.create') }}" class="px-4 py-2 bg-green-500 text-white text-sm font-bold uppercase rounded hover:bg-green-600 focus:outline-none focus:bg-green-700 transition duration-150 ease-in-out">
-                                Add New Event
-                            </a>
-                        </div>
                         <div class="w-full mx-auto bg-white p-6 rounded-md shadow-md">
                             <h2 class="text-xl font-medium text-gray-700">Reservations List</h2>
                             <div class="overflow-x-auto mt-6">

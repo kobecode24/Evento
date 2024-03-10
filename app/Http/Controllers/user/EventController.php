@@ -13,7 +13,7 @@ class EventController extends Controller
     {
         $categories = Category::all();
 
-        $query = Event::whereIn('status', [2, 3]);
+``        $query = Event::whereIn('status', [2, 3])->orderBy('id', 'desc');
 
         if ($request->has('category_id') && $request->category_id != null) {
             $query->where('category_id', $request->category_id);

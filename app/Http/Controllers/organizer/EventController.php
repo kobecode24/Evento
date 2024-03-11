@@ -21,13 +21,6 @@ class EventController extends Controller
         return view('organizer.events.index', compact('events'));
     }
 
-
-    public function create()
-    {
-        $categories = Category::all();
-        return view('organizer.events.create', compact('categories'));
-    }
-
     public function store(StoreEventRequest $request)
     {
         $data = $request->validated();

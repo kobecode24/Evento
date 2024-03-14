@@ -42,6 +42,7 @@ class ReservationController extends Controller
             } else {
                 return back()->with('error', 'This event is not available for reservations.');
             }
+            $event->decrement('available_slots');
 
             $reservation = new Reservation([
                 'user_id' => $userId,
@@ -57,7 +58,6 @@ class ReservationController extends Controller
                 'ticket_unique_id' => $uniqueId,
                 'qr_url' => $qrCode,
             ]);
-            $event->decrement('available_slots');
         }
 
         return redirect()->route('user.reservations.index')->with('success', 'Reservation made successfully.');
